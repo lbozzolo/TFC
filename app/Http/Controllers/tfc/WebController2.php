@@ -47,12 +47,12 @@ class WebController2 extends Controller {
             }
         }
 
-
         $this->data['route'] = $route->getParameter('categoriaId');
-        if(!Session::has('categoria'))
+        if(!Session::has('categories_id'))
         {
             return redirect()->to('web/');
         }
+
 
     }
 
@@ -65,8 +65,10 @@ class WebController2 extends Controller {
 
     public function Torneos($categoria,$torneos,FasesWeek $fasesWeek, Fases $fases,$fase = null)
     {
+
         $this->data["torneo"] = Tournaments::find($torneos);
         $this->data["fases"] = Fases::where("tournaments_id",$torneos)->get();
+
         if($fase)
             $this->data['faseActual'] = $fases->find($fase);
         else
@@ -79,6 +81,7 @@ class WebController2 extends Controller {
 
         $fasesWeeks  = $fasesWeek->where('fases_id',$this->data['faseActual']->id);
 
+
 //        RESULTADOS
         $this->data['resultado']  = $fasesWeek->where('fases_id',$this->data['faseActual']->id)->where('active',1)->get();
 
@@ -87,6 +90,7 @@ class WebController2 extends Controller {
             ->orderBy('pj','DESC')
             ->orderBy('dg','DESC')
             ->get();
+
 //        FIN RESULTADOS
 
 
@@ -110,6 +114,7 @@ fases_week.id WHERE fases_week.fases_id = ? AND goals != 0
 GROUP BY matches_details.players_id ORDER BY goals DESC LIMIT 8";
 
         $this->data['goleadores'] = DB::select($q,array($this->data["faseActual"]->id));
+
 //        FIN GOLEADORES
 
 //        FAIRPLAY
@@ -119,8 +124,9 @@ JOIN matches ON matches_details.matches_id = matches.id JOIN fases_week ON fases
  fases ON fases_week.fases_id= fases.id WHERE fases.id = ? GROUP BY players.teams_id ORDER BY puntos DESC";
 
         $this->data['fairplay'] = DB::select($fairplay,array($this->data["faseActual"]->id));
-//        FIN FAIRPLAY
 
+//        FIN FAIRPLAY
+        //dd($this->data);
         return view('tfc/web/new/torneos')->with($this->data);
     }
 

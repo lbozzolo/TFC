@@ -1,4 +1,4 @@
-@extends('tfc.web.new.template')
+@extends('tfc.web.layout')
 
 @section('content')
 
@@ -29,20 +29,6 @@
                     </main>
                 </div>
 
-                <aside class="tm-sidebar-a uk-width-medium-1-4 uk-pull-3-4 uk-row-first">
-                    <div class="uk-panel categories-sidebar">
-                        <h3 class="uk-panel-title">El Tiempo</h3>
-                        int(3)
-                        <article class="has-context ">
-                            <div class="latest-news-wrap">
-                                <!-- www.TuTiempo.net - Ancho:189px - Alto:358px -->
-                                <div id="TT_viAwYAWAgddBCFMAKAuEkEE1kRlALEI2LdEt1H5FgYGAtwWAg">Pron?stico de Tutiempo.net</div>
-                                <script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_viAwYAWAgddBCFMAKAuEkEE1kRlALEI2LdEt1H5FgYGAtwWAg"></script>
-                            </div>
-                        </article>
-                        <div class="clearfix"> </div>
-                    </div>
-                </aside>
             </div>
         </div>
 

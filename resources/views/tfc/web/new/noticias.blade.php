@@ -1,63 +1,53 @@
-@extends('tfc.web.new.template')
+@extends('tfc.web.layout')
+
+
+@section('page-heading')
+
+  <div class="page-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h1 class="page-heading__title">Noticias  <span class="highlight">The Futbol Company</span></h1>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+@endsection
 
 @section('content')
-        <div class="uk-container uk-container-center">
-            <div id="tm-middle" class="tm-middle uk-grid" data-uk-grid-match="" data-uk-grid-margin="">
-                <div class="tm-main uk-width-medium-4-4 uk-push-4-1">
-                   
-                    <div class="contentpaneopen">
-                       <main id="tm-content" class="tm-content">
-                            <div class="uk-grid" data-uk-grid-match="">
-                                @if($noticias->count() > 0)
-                                    @foreach($noticias as $noticia)
-                                        <div class="uk-width-large-1-3 uk-width-medium-2-4 uk-width-small-2-4 list-article uk-flex uk-flex-column">
-                                            <div class="wrapper">
-                                                <div class="img-wrap uk-flex-wrap-top">
-                                                    
-                                                    <img src="{!! $noticia->Images->first()->image or 'assets/web/images/noticiasDefault.jpg' !!}" class="img-polaroid" alt="">
-                                                    
-                                                </div>
-                                                <div class="info uk-flex-wrap-middle">
-                                                    <div class="date">
-                                                        {!! $noticia->date !!}
-                                                    </div>
-                                                    <div class="name">
-                                                        <h4>
-                                                            
-                                                                {!! $noticia->title !!}
-                                                            
-                                                        </h4>
-                                                    </div>
-                                                    <div class="text">
-                                                        <p>{!! $noticia->description !!}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
 
-                                        </div>
-                                    @endforeach
-                                @endif
+    <div class="site-content">
+      <div class="container">
+
+        <div class="posts posts--cards post-grid post-grid--fitRows row">
+
+
+            @if($noticias->count() > 0)
+                @foreach($noticias as $noticia)
+
+                    <div class="post-grid__item col-md-4 col-lg-4 col-xs-12 col-sm-6">
+                        <div class="posts__item posts__item--card posts__item--category-1 card" style="height: 500px; overflow: hidden">
+                            <figure class="posts__thumb">
+                                <a href="#"><img src="{{ asset(($noticia->Images->first())? $noticia->Images->first()->image : 'assets/web/images/noticiasDefault.jpg') }}"  alt=""></a>
+                            </figure>
+                            <div class="posts__inner card__content">
+                                <time datetime="2016-08-23" class="posts__date">{!! $noticia->date !!}</time>
+                                <h6 class="posts__title"><a href="#">{!! $noticia->title !!}</a></h6>
+                                <div class="posts__excerpt">
+                                    {!! str_limit($noticia->description, 180) !!}
+                                </div>
                             </div>
 
-                           {!! $noticias->render() !!}
-                                {{--<div class="pagination">--}}
-                                    {{--<ul class="pagination-list">--}}
-                                        {{--<li class="pagination-start"><span class="pagenav">Start</span></li>--}}
-                                        {{--<li class="pagination-prev"><span class="pagenav">Prev</span></li>--}}
-                                        {{--<li><span class="pagenav">1</span></li>--}}
-                                        {{--<li><a href="#" class="pagenav">2</a></li>--}}
-                                        {{--<li class="pagination-next"><a data-original-title="Next" title="" href="#" class="hasTooltip pagenav">Sig</a></li>--}}
-                                        {{--<li class="pagination-end"><a data-original-title="End" title="" href="#" class="hasTooltip pagenav">Ant</a></li>--}}
-                                    {{--</ul>--}}
-                                {{--</div>--}}
-                                <div class="clearfix"></div>
-
-                        </main>
+                        </div>
                     </div>
-   
 
-                </div>
-                
-            </div>
-        </div>
+                @endforeach
+            @endif
+
+      </div>
+    </div>
+</div>
+
 @endsection

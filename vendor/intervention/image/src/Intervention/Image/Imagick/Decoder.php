@@ -18,12 +18,15 @@ class Decoder extends \Intervention\Image\AbstractDecoder
 
         try {
 
+            $core->setBackgroundColor(new \ImagickPixel('transparent'));
             $core->readImage($path);
-            $core->setImageType(\Imagick::IMGTYPE_TRUECOLORMATTE);
+            $core->setImageType(defined('\Imagick::IMGTYPE_TRUECOLORALPHA') ? \Imagick::IMGTYPE_TRUECOLORALPHA : \Imagick::IMGTYPE_TRUECOLORMATTE);
 
         } catch (\ImagickException $e) {
             throw new \Intervention\Image\Exception\NotReadableException(
-                "Unable to read image from path ({$path})."
+                "Unable to read image from path ({$path}).",
+                0,
+                $e
             );
         }
 
@@ -76,12 +79,15 @@ class Decoder extends \Intervention\Image\AbstractDecoder
         $core = new \Imagick;
 
         try {
+            $core->setBackgroundColor(new \ImagickPixel('transparent'));
 
             $core->readImageBlob($binary);
 
         } catch (\ImagickException $e) {
             throw new \Intervention\Image\Exception\NotReadableException(
-                "Unable to read image from binary data."
+                "Unable to read image from binary data.",
+                0,
+                $e
             );
         }
 
