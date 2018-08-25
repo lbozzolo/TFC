@@ -14,13 +14,12 @@
     <div class="widget__content card__content">
         <ul class="widget-results__list">
 
-
             @foreach($fasesWeek as $fase)
 
                 @forelse($fase->Matches as $partido)
 
                     <li class="widget-results__item {!! $fase->id == $faseActual->id ? "uk-active " : "" !!}" aria-hidden="false">
-                        <h5 class="widget-results__title">ACÁ VA LA FECHA</h5>
+                        <h5 class="widget-results__title">{!! $partido->date !!}</h5>
                         <div class="widget-results__content">
                             <div class="widget-results__team widget-results__team--first">
                                 <figure class="widget-results__team-logo">
@@ -32,11 +31,11 @@
                             </div>
                             <div class="widget-results__result">
                                 <div class="widget-results__score">
-                        <span class="widget-results__score-loser">
-                          {!! $partido->home_goals or "-" !!}
-                          </span> - <span class="widget-results__score-loser">
-                          {!! $partido->away_goals or "-" !!}
-                        </span>
+                                    <span class="widget-results__score-loser">
+                                      {!! $partido->home_goals or "-" !!}
+                                      </span> - <span class="widget-results__score-loser">
+                                      {!! $partido->away_goals or "-" !!}
+                                    </span>
                                 </div>
                             </div>
                             <div class="widget-results__team widget-results__team--second">

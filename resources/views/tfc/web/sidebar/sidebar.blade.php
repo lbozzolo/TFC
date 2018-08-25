@@ -10,9 +10,15 @@
             <ul class="widget__list">
                 <li class="has-children"><a href="#">{{ $torneo->name }}</a>
                     <ul>
-                    @foreach($torneo->Fases as $fase)
-                        <li><a href="{{ route('new.torneos', $fase->id) }}">{!! $fase->name !!}</a></li>
-                    @endforeach
+                    @forelse($fases as $fase)
+                        <li class="item-7">
+                            <a href="{!! route("new.torneos",[$route,$torneo->id,$fase->id]) !!}">{!! $fase->name !!}</a>
+                        </li>
+                    @empty
+                        <li class="item-7">
+                            <a href="javascript:void(0)">SIN FASES</a>
+                        </li>
+                    @endforelse
                     </ul>
                 </li>
             </ul>

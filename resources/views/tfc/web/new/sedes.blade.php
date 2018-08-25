@@ -7,7 +7,6 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <h1 class="page-heading__title">Sedes de <span class="highlight">TFC</span></h1>
-
                 </div>
             </div>
         </div>
@@ -18,35 +17,32 @@
 
 @section('content')
 
-    <div class="site-content">
-        <div class="container">
+    <div class="gallery row">
 
-            <!-- Gallery -->
-            <div class="gallery row">
+        @foreach($sedes as $sede)
 
-                @foreach($sedes as $sede)
-                    <div class="gallery__item col-xs-6 col-sm-4">
-                        <a href="{!! route('new.sedeDetalle',[$route,$sede->id]) !!}" class="gallery__item-inner card">
-                            <figure class="gallery__thumb">
-                                <img src="{{ asset($sede->Images->first()->image or '') }}" alt="">
-                                <span class="btn-fab gallery__btn-fab"></span>
-                            </figure>
-                            <div class="gallery__content card__content">
-                                <span class="gallery__icon">
-                                  <span class="icon-camera"></span>
-                                </span>
-                                <div class="gallery__details">
-                                    <h4 class="gallery__name">{!! $sede->name !!}</h4>
-                                    <div class="gallery__date">Ver mapa</div>
-                                </div>
-                            </div>
-                        </a>
+            <div class="gallery__item col-xs-6 col-sm-4">
+                <a href="{!! route('new.sedeDetalle',[$route,$sede->id]) !!}" class="gallery__item-inner card">
+                    <figure class="gallery__thumb">
+                        @if($sede->Images->first())
+                            <img src="{{ $sede->Images->first()->image or '' }}" alt="" class="">
+                        @endif
+                        <span class="btn-fab gallery__btn-fab"></span>
+                    </figure>
+                    <div class="gallery__content card__content">
+                        <span class="gallery__icon">
+                          <span class="icon-camera"></span>
+                        </span>
+                        <div class="gallery__details">
+                            <h4 class="gallery__name">{!! $sede->name !!}</h4>
+                            <div class="gallery__date">Ver mapa</div>
+                        </div>
                     </div>
-                @endforeach
-
+                </a>
             </div>
+        @endforeach
 
-        </div>
     </div>
+
 
 @endsection

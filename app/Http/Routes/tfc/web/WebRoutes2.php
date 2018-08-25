@@ -65,4 +65,5 @@ Route::group(['namespace' => 'tfc'], function()
 
     Route::post('contacto',['as'=>'postContact','uses'=>'WebController2@postContact']);
 
+
 });

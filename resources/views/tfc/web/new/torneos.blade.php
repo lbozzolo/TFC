@@ -16,25 +16,27 @@
 
 @section('content')
 
-<div class="col-md-9 col-md-push-3">
+    <div class="col-md-9 col-md-push-3">
 
-  <div class="card card--clean">
-  <!-- Posiciones -->
-      @include('tfc.web.new.posiciones')
-  </div>
-  <!-- Inicio Resultados de la Fecha -->
-      @include('tfc.web.new.resultados-de-la-fecha')
-  <!-- Inicio Proxima Fecha -->
-      @include('tfc.web.new.proxima-fecha')
-  <!-- Fixture y resultados -->
-      @include('tfc.web.new.fixture-y-resultados')
-  <!-- Inicio Sancionados de la Fecha -->
-      @include('tfc.web.new.sancionados')
-  <!-- Inicio FairPlay -->
-      @include('tfc.web.new.fair-play')
-  <!-- Inicio Goleadores -->
-      @include('tfc.web.new.goleadores')
+      <div class="card card--clean">
+      <!-- Posiciones -->
+          @include('tfc.web.new.posiciones')
+      </div>
+      <!-- Inicio Resultados de la Fecha -->
+          @include('tfc.web.new.resultados-de-la-fecha')
+      <!-- Inicio Proxima Fecha -->
+          @include('tfc.web.new.proxima-fecha')
+      <!-- Fixture y resultados -->
+          @include('tfc.web.new.fixture-y-resultados')
+      <!-- Inicio Sancionados de la Fecha -->
+          @include('tfc.web.new.sancionados')
+      <!-- Inicio FairPlay -->
+          @include('tfc.web.new.fair-play')
+      <!-- Inicio Goleadores -->
+          @include('tfc.web.new.goleadores')
 
-</div>
+    </div>
+
+    @include('tfc/web/sidebar/sidebar')
 
 @endsection

@@ -1,6 +1,8 @@
+@if(isset($route))
+
 <nav class="main-nav clearfix">
     <ul class="main-nav__list">
-        <li><a href="index.html"><font size="1">Home</font></a></li>
+        <li><a href="http://www.thefutbolcompany.com/">Home</a></li>
 
         <li  class="{!! (isset($categoria) && $categoria == 'torneos') ? "active" : "" !!}"><a href="#"><font size="1">Torneos</font></a>
             <ul class="main-nav__sub">
@@ -36,3 +38,5 @@
 
     <!-- Pushy Panel Toggle / Eng -->
 </nav>
+
+@endif

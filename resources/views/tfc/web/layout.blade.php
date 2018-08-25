@@ -161,8 +161,6 @@
 
                 @yield('content')
 
-                @include('tfc/web/sidebar/sidebar')
-
             </div>
         </div>
     </div>

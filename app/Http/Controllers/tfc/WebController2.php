@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Repositories\tfc\PlayersRepo;
+use Illuminate\Support\Facades\File;
 
 class WebController2 extends Controller {
     protected $data;
@@ -62,6 +63,7 @@ class WebController2 extends Controller {
 
         return view('tfc/web/new/index')->with($this->data);
     }
+
 
     public function Torneos($categoria,$torneos,FasesWeek $fasesWeek, Fases $fases,$fase = null)
     {
