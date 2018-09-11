@@ -1,21 +1,34 @@
 <aside class="widget card widget--sidebar widget-results">
     <div class="widget__title card__header card__header--has-btn">
-        <h4>Fixture y Resultados</h4>
+        <h4>Fixture y Resultados <span id="fase-actual" class="text-muted"> - Fase 1</span></h4>
         <ul class="team-result-filter">
             <li class="team-result-filter__item">
-                <select class="form-control input-xs">
+                <select class="form-control input-xs" id="seleccion-fecha">
                     @foreach($fasesWeek as $ind => $fase)
-                        <option value="{!! $ind !!}">Fecha {!! $ind + 1 !!}</option>
+                        <option value="fase-{!! $ind !!}">Fase {!! $ind + 1 !!}</option>
                     @endforeach
                 </select>
             </li>
         </ul>
     </div>
     <div class="widget__content card__content">
-        <ul class="widget-results__list">
+<!--
+    <ul class="list-inline">
+        @foreach($fasesWeek as $ind => $fase)
+            <li>
+                <button type="button" class="btn btn-xs btn-info btn-flat select-fecha" data-id="fase-{!! $ind !!}"> {!! $ind + 1 !!}</button>
+            </li>
+        @endforeach
+    </ul>
+-->
+    @foreach($fasesWeek as $i => $fase)
 
-            @foreach($fasesWeek as $fase)
-
+        @if ($i == 0)
+            <div id="fase-{{ $i }}" class="fechas">
+        @else
+            <div id="fase-{{ $i }}" style="display: none" class="fechas">
+        @endif
+            <ul class="widget-results__list">
                 @forelse($fase->Matches as $partido)
 
                     <li class="widget-results__item {!! $fase->id == $faseActual->id ? "uk-active " : "" !!}" aria-hidden="false">
@@ -51,9 +64,10 @@
 
                 @empty
                 @endforelse
+            </ul>
+        </div>
 
-            @endforeach
+    @endforeach
 
-        </ul>
     </div>
 </aside>

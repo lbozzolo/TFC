@@ -1048,6 +1048,7 @@ class DOMPDF {
    * @param array  $options header options (see above)
    */
   function stream($filename, $options = null) {
+
     $this->save_locale();
 
     $this->write_log();

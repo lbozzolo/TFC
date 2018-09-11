@@ -16,11 +16,13 @@
 
                     <li class="widget-results__item">
                         <h5 class="widget-results__title">
-                            <span>{!! date("d",strtotime($partido->date)) !!}</span>
-                            {!! date("m",strtotime($partido->date)) !!}
-                            / Foetra - Cancha 2
+                            <span style="color: black">
+                                {!! date("d/m/y",strtotime($partido->date)) !!}
+                                - {!! date("h:i", strtotime($partido->date)) !!} hs
+                            </span>
+                            - cancha "{!! ($partido->canchas) ? $partido->canchas->name : 'A confirmar' !!}"
+                            - sede "{!! $partido->canchas->sedes->name !!}"
                         </h5>
-
                         <div class="widget-results__content">
                             <div class="widget-results__team widget-results__team--first">
                                 <figure class="widget-results__team-logo">

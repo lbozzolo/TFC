@@ -60,43 +60,44 @@
                         </div>
                         <div class="col-md-8">
 
-                            <!-- Contact Form -->
-                            <form action="#" class="contact-form">
+                            <!-- Contact Form --> 
+
+                                {!! Form::open(['route'=>'postRegistration','class' => 'contact-form','files' => true]) !!}
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="contact-form-apellido">Apellido <span class="required">*</span></label>
-                                            <input type="text" name="contact-form-apellido" id="contact-form-apellido" class="form-control" placeholder="Apellido...">
+                                            {!! Form::text('last_name',null ,['class'=>'large','placeholder','form-control','form-control'=>'APELLIDO','required' => 'required']) !!}
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="contact-form-name">Nombre <span class="required">*</span></label>
-                                            <input type="text" name="contact-form-name" id="contact-form-name" class="form-control" placeholder="Nombre...">
+                                            {!! Form::text('name',null ,['class'=>'large','placeholder','form-control'=>'NOMBRE','required' => 'required']) !!}
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="contact-form-email">Email <span class="required">*</span></label>
-                                            <input type="email" name="contact-form-email" id="contact-form-email" class="form-control" placeholder="Email...">
+                                            {!! Form::text('mail',null ,['class'=>'large','placeholder','form-control'=>'E-MAIL','required']) !!}
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="contact-form-dni">DNI <span class="required">*</span></label>
-                                            <input type="text" name="contact-form-dni" id="contact-form-dni" class="form-control" placeholder="DNI...">
+                                            {!! Form::text('dni',null ,['class'=>'medium','placeholder','form-control'=>'DNI','required' => 'required']) !!}
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="contact-form-nacimiento">Fecha de Nacimiento</label>
-                                            <input type="text" name="contact-form-nacimiento" id="contact-form-nacimiento" class="form-control" placeholder="Fecha de Nacimiento...">
+                                            {!! Form::text('phone',null ,['class'=>'large','placeholder','form-control'=>'FECHA DE NACIMIENTO','id' => 'dob']) !!}
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="contact-form-tel">Teléfono <span class="required">*</span></label>
-                                            <input type="text" name="contact-form-tel" id="contact-form-tel" class="form-control" placeholder="Teléfono...">
+                                            {!! Form::text('cel',null ,['class'=>'large','placeholder','form-control'=>'CELULAR']) !!}
                                         </div>
                                     </div>
                                 </div>
@@ -110,15 +111,22 @@
                                     </div>
                                     <div class="form-group__upload">
                                         <label class="btn btn-default btn-xs btn-file">
-                                            Subir Imagen... <input type="file" style="display: none;">
+                                            Subir Imagen... {!! Form::file('image',['class'=>'large pull-left','form-control']) !!}
                                         </label>
                                     </div>
                                 </div>
 
+                                <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="contact-form-tel">Equipo <span class="required">*</span></label>
+                                            {!! Form::select('teams_id',['0'=>'Seleccionar Equipo'] + $teams ,['class'=>'large','required','form-control'=>'required']) !!}
+                                        </div>
+                                    </div>
+
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="account-password">Password de Registro</label>
-                                        <input type="password" class="form-control" value="" name="account-password" id="account-password" placeholder="**********">
+                                        <input type="password" name="password" id="password" class="large" placeholder="Password"  required>
                                     </div>
                                 </div>
                                 <br><br><br><br>
@@ -140,14 +148,11 @@
                                     Derechos de Imagen: En el torneo que usted está participando se realizarán tomas de imágenes y videos para cuestiones de promoción y publicidad. A través de esta nota le informamos que su imagen puede ser utilizada para estos fines y por defecto nos autoriza para la utilización de las mismas. Ley N 11.723
 
                                     Esta declaración se mantendrá vigente mientras el solicitante intervenga en este o cualquier otro torneo y/o actividad deportiva o social en el predio de TFC y/o organizada por la organización. A los efectos expresados se guarda una copia en formato digital en poder de la organización. </p><br>
-                                <label class="checkbox checkbox-inline">
-                                    <input type="checkbox" id="inlineCheckbox1" value="option1" unchecked> Acepto términos y condiciones
-                                    <span class="checkbox-indicator"></span>
-                                </label>
+                                <label class="text-center" style="display:block;font-size:1.2em;">Acepto términos y condiciones <input type="checkbox" name="terms" value="terms" class="input-md" required></label>
                                 <div class="form-group form-group--submit">
                                     <button type="submit" class="btn btn-primary-inverse btn-lg btn-block">Registrar Jugador en Equipo</button>
                                 </div>
-                            </form>
+                            {!! Form::close() !!}
                             <!-- Contact Form / End -->
                         </div>
                     </div>

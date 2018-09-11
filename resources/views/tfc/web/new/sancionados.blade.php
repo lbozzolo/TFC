@@ -1,6 +1,6 @@
 <aside class="widget widget--sidebar card card--has-table widget-leaders">
     <div class="widget__title card__header">
-        <h4>Sancionados de la Fecha</h4>
+        <h4>Sancionados del torneo</h4>
     </div>
     <div class="widget__content card__content">
 
@@ -27,7 +27,7 @@
                                         <img src="{{ asset('assets/images/samples/goalscorer_02.png') }}" alt="">
                                     </figure>
                                     <div class="team-leader__player-inner">
-                                        <h5 class="team-leader__player-name">{!! $p->players->FullName() !!}</h5>
+                                        <h5 class="team-leader__player-name">{!! ucwords(strtolower($p->players->FullName())) !!}</h5>
                                         <span class="team-leader__player-position">{!! $p->players->teams->name !!}</span>
                                     </div>
                                 </div>

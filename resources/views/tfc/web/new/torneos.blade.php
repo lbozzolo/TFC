@@ -40,3 +40,19 @@
     @include('tfc/web/sidebar/sidebar')
 
 @endsection
+
+@section('js')
+
+    <script>
+
+        $('#seleccion-fecha').change(function(){
+            var data= $(this).val();
+            var fase = parseInt(data.substring(5)) + 1;
+            $('.fechas').hide();
+            $('#' + data).show();
+            $('#fase-actual').text(" - Fase " + fase);
+        });
+
+    </script>
+
+@endsection

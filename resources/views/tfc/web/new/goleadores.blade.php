@@ -21,7 +21,7 @@
                                     <img src="{{ asset('assets/images/samples/goalscorer_01.png') }}" alt="">
                                 </figure>
                                 <div class="team-leader__player-inner">
-                                    <h5 class="team-leader__player-name">{!! $goleador->players !!}</h5>
+                                    <h5 class="team-leader__player-name">{!! ucwords(strtolower($goleador->players)) !!}</h5>
                                     <span class="team-leader__player-position">{!! $goleador->teams !!}</span>
                                 </div>
                             </div>

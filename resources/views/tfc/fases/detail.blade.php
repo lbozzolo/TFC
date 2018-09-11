@@ -73,9 +73,9 @@
                         <td>
 
                             @if(!is_null($match->AwayTeam) )
-                                <a href="{{route('matchesGetFicha',[$match->id] )}}" target='blank' class="btn btn-xs btn-default">Ficha</a>
 
-                                    <a href="{{route('matchesGetResult',[$match->id] )}}" class="btn btn-xs btn-default">Resultado</a>
+                                <a href="{{route('matchesGetFicha',[$match->id] )}}" target='blank' class="btn btn-xs btn-default">Ficha</a>
+                                <a href="{{route('matchesGetResult',[$match->id] )}}" class="btn btn-xs btn-default">Resultado</a>
 
                             @endif
                             <a href="{{route('matchesGetEdit',[$match->id,$fases->fases_id] )}}" class="btn btn-xs btn-default">Editar</a>

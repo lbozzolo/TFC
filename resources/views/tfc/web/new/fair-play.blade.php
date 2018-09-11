@@ -19,9 +19,6 @@
                     <tr>
                         <td>
                             <div class="team-meta">
-                                <figure class="team-meta__logo">
-                                    <img src="{{ asset('assets/images/samples/logos/logo001.png') }}" alt="" class="img-responsive">
-                                </figure>
                                 <div class="team-meta__info">
                                     <h6 class="team-meta__name">{!! $fp->name !!}</h6>
                                 </div>

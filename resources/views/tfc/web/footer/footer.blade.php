@@ -92,7 +92,7 @@
             <div class="footer-secondary__inner">
                 <div class="row">
                     <div class="col-md-8">
-                        <div class="footer-copyright"><a href="#">Thefutbolcompany.com</a> � 2018 &nbsp; | &nbsp; Todos los Derechos Reservados.&nbsp; | &nbsp; Dise�ado por Bamdig.com</div>
+                        <div class="footer-copyright"><a href="http://www.thefutbolcompany.com">Thefutbolcompany.com</a> � 2018 &nbsp; | &nbsp; Todos los Derechos Reservados.&nbsp; | &nbsp; Diseñado por <a href="http://www.verticedigital.com.ar">Vértice Digital</a></div>
                     </div>
                 </div>
             </div>

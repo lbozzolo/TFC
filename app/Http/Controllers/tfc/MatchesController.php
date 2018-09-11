@@ -11,12 +11,12 @@ use App\Entities\tfc\Sedes;
 use App\Entities\tfc\Teams;
 use App\Http\Repositories\tfc\MatchesRepo as Repo;
 use App\Http\Controllers\Controller;
-
 use App\Http\Repositories\tfc\TablasRepo;
 use App\Http\Repositories\tfc\TeamsRepo;
 use Illuminate\Http\Request;
 use App\Helpers\ImagesHelper;
 use PDF;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Session;
 
 
@@ -268,10 +268,21 @@ class MatchesController extends Controller {
     {
         $data['match']  = Matches::find($matches_id);
 
-        $pdf = PDF::loadView('tfc.matches.ficha',$data);
+        $html = View::make('tfc.matches.ficha', $data)->render();
+        $html = preg_replace('/>\s+</', '><', $html);
+
+        $pdf = PDF::loadHtml($html);
+
         $pdf->setPaper('A4');
 
         return $pdf->stream();
+        /*$data['match']  = Matches::find($matches_id);
+
+        $pdf = PDF::loadView('tfc.matches.ficha',$data);
+
+        $pdf->setPaper('A4');
+
+        return $pdf->stream();*/
 
     }
 

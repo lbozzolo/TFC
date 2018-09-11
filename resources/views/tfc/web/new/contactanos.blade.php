@@ -61,18 +61,18 @@
                         <div class="col-md-8">
 
                             <!-- Contact Form -->
-                            <form action="#" class="contact-form">
+                            {!! Form::open(['route'=>'postContact','method' => 'post','id' => 'adminForm_1', 'class' => 'contact-form']) !!}
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="contact-form-name">Nombre <span class="required">*</span></label>
-                                            <input type="text" name="contact-form-name" id="contact-form-name" class="form-control" placeholder="Nombre...">
+                                            <input type="text" name="name" id="contact-form-name" class="form-control" placeholder="Nombre...">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="contact-form-email">Email <span class="required">*</span></label>
-                                            <input type="email" name="contact-form-email" id="contact-form-email" class="form-control" placeholder="Email...">
+                                            <input type="email" name="email" id="contact-form-email" class="form-control" placeholder="Email...">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -84,12 +84,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="contact-form-message">Mensaje <span class="required">*</span></label>
-                                    <textarea name="name" rows="5" class="form-control" placeholder="Ingrese su Mensaje aqui..."></textarea>
+                                    <textarea name="message" rows="5" class="form-control" placeholder="Ingrese su Mensaje aqui..."></textarea>
                                 </div>
                                 <div class="form-group form-group--submit">
                                     <button type="submit" class="btn btn-primary-inverse btn-lg btn-block">Envialo</button>
                                 </div>
-                            </form>
+                            {!! Form::close() !!}
                             <!-- Contact Form / End -->
                         </div>
                     </div>

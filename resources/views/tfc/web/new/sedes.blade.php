@@ -25,7 +25,7 @@
                 <a href="{!! route('new.sedeDetalle',[$route,$sede->id]) !!}" class="gallery__item-inner card">
                     <figure class="gallery__thumb">
                         @if($sede->Images->first())
-                            <img src="{{ $sede->Images->first()->image or '' }}" alt="" class="">
+                            <img src="{{ $sede->Images->first()->image }}" alt="" class="">
                         @endif
                         <span class="btn-fab gallery__btn-fab"></span>
                     </figure>

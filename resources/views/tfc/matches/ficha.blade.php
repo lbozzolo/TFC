@@ -5,11 +5,11 @@
     <title>Grilla TFC - Partido del Día</title>
 
     <!-- paste this code into your webpage -->
-    <link href="assets/css/tablecloth.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="{{ asset('assets/css/tablecloth.css') }}" rel="stylesheet" type="text/css" media="screen" />
 
     <!-- end -->
 
-    <style>
+    <style type="text/css">
 
         body{
             margin:0;
@@ -155,8 +155,8 @@
         }
 
         .observ h2:last-child{
-            margin-left: -200px;
-            padding-top:-5px;
+            margin-left:  200px;
+            padding-top: 5px;
         }
 
         .dni{
@@ -184,15 +184,15 @@
     </style>
 
 </head>
-
 <body>
 
     <div class="tabla-bottom">
-        <img src="assets/web/images/logo_chico.png" width="100" alt=""/>
+        <img src="{{ asset('assets/web/images/logo_chico.png') }}" width="100" alt=""/>
 
         <div id="bottom">
 
-            {{--<h2>&nbsp;</h2>--}}
+<h2>&nbsp;</h2>
+
 
             <div class="arbitraje">
                 <table cellspacing="0" cellpadding="0">
@@ -428,5 +428,4 @@
 
 
 
-</body>
-</html>
+</body></html>

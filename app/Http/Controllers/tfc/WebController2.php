@@ -198,7 +198,6 @@ JOIN matches ON matches_details.matches_id = matches.id JOIN fases_week ON fases
     public function postRegistration(Request $request , PlayersRepo $player, ImagesHelper $image)
     {
 
-
         $validator = Validator::make(
             $request->all(),
             [
@@ -254,16 +253,20 @@ JOIN matches ON matches_details.matches_id = matches.id JOIN fases_week ON fases
             $image->upload('players', $model->id  ,$request->file('image') ,'uploads/tfc/players/images/');
         }
 
+        $mailTFC = "tfc@thefutbolcompany.com";
+        $mailAlfonso = "fernandoalf@hotmail.com";
+
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type: text/html; UTF-8" . "\r\n";
-        $headers .= "From: tfc@thefutbolcompany.com" . "\r\n" .
+        $headers .= "From: ". $mailTFC . "\r\n" .
 //            "Reply-To: $request->mail" . "\r\n" .
 
         $mail = false;
 
 
+        $mailJoni = "joni.creatividad@gmail.com";
 //            if(mail($request->mail,'Inscripción a TFC',"Registración correcta al sistema.  Atte. TFC",$headers))
-                if(mail("joni.creatividad@gmail.com",'Inscripción a TFC',"Registración correcta al sistema.  Atte. TFC",$headers))
+                if(mail($mailTFC,'Inscripción a TFC',"Registración correcta al sistema.  Atte. TFC",$headers))
             {
                 return redirect()->back()->withErrors('INSCRIPCION CARGADA CORRECTAMENTE. Se le enviara un mail con la confirmacion de la inscripcion.');
             }
@@ -284,16 +287,18 @@ JOIN matches ON matches_details.matches_id = matches.id JOIN fases_week ON fases
                 'message'   => 'required'
             ]);
 
-
+        $mailTheFutbol = "juga@thefutbolcompany.com";
+        $mailAlfonso = "fernandoalf@hotmail.com";
 
 
         if ($validator->fails()) {
-            return "Complete correctamente los campos anteriores";
+            return redirect()->back()->withInput()->withErrors($validator->messages());
+            //return "Complete correctamente los campos anteriores";
         }else{
 
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type: text/html; UTF-8" . "\r\n";
-            $headers .= "From: juga@thefutbolcompany.com" . "\r\n" .
+            $headers .= "From: ". $mailTheFutbol . "\r\n" .
                 "Reply-To: $request->email" . "\r\n" .
 
 
@@ -303,7 +308,7 @@ JOIN matches ON matches_details.matches_id = matches.id JOIN fases_week ON fases
             $msg .= 'Mail:'.$request->email.'<br>';
 
 
-            if(mail('juga@thefutbolcompany.com','Contacto desde la web',$msg,$headers))
+            if(mail($mailTheFutbol,'Contacto desde la web',$msg,$headers))
                 return redirect()->back()->withErrors("Se Envio correctamente su mail.");
             else
                 "No se pudo enviar el mail.";

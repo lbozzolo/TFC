@@ -4,7 +4,8 @@
     <ul class="main-nav__list">
         <li><a href="http://www.thefutbolcompany.com/">Home</a></li>
 
-        <li  class="{!! (isset($categoria) && $categoria == 'torneos') ? "active" : "" !!}"><a href="#"><font size="1">Torneos</font></a>
+        <li  class="uk-parent {!! (isset($categoria) && $categoria == 'torneos') ? "active" : "" !!}" data-uk-dropdown="{'preventflip':'y'}" aria-haspopup="true" aria-expanded="false">
+            <a href="#">Torneos</a>
             <ul class="main-nav__sub">
                 @foreach(\App\Entities\tfc\Tournaments::where('categories_id',$route)->orderBy('id','des')->get() as $torneo)
                     @if(strtotime($torneo->to) >= strtotime(date('Y-m-d')))

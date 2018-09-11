@@ -11,7 +11,7 @@
     <meta name="author" content="Jorge Perez">
     <meta name="keywords" content="organizacion de torneos de futbol, torneos de futbol 5, torneos de futbol 11, torneos de futbol 7, torneos empresariales, torneos corporativos, futbol 5 futbol 11, organizacion" />
     <meta name="description" content="Organizacion integral de eventos sociales y deportivos">
-
+    <base href="{{ asset('/') }}">
     <!-- Favicons
     ================================================== -->
     <link rel="shortcut icon" href="{{ asset('assets/images/soccer/favicons/favicon.ico') }}">
@@ -73,12 +73,12 @@
     <header class="header">
 
         <!-- Header Top Bar -->
-        <div class="header__top-bar clearfix">
+        <div class="header__top-bar clearfix" style="padding-top: 30px">
             <div class="container">
 
                 <!-- Account Navigation -->
                 <ul class="nav-account">
-                    <li class="nav-account__item"><a href="http://www.thefutbolcompany.com/cpanel">Acceso</a></li>
+                    <li class="nav-account__item"></li>
                 </ul>
                 <!-- Account Navigation / End -->
 
@@ -111,6 +111,7 @@
                     <!-- Header Logo / End -->
 
                     @include('tfc.web.menu.navbar')
+                    @include('messages')
 
                 </div>
             </div>
@@ -169,8 +170,6 @@
 
 </div>
 
-@yield('js')
-
 <!-- Javascript Files
 ================================================== -->
 
@@ -185,6 +184,8 @@
 <!-- Template JS -->
 <script src="{{ asset('assets/js/init.js') }}"></script>
 <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+@yield('js')
 
 </body>
 </html>
